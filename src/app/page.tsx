@@ -1,6 +1,9 @@
 "use client";
 
 import { Section, Block, Link } from "@/devlink/_Builtin";
+import { Navbar } from "@/devlink/Navbar"; // Import the Navbar component
+import { Footer } from "@/devlink/Footer"; // Import the Footer component
+import { Cta1 } from "@/devlink";
 
 export default function Home() {
   return (
@@ -14,6 +17,19 @@ export default function Home() {
       }}
     >
       <Block tag="div" className="container">
+      {/* Add Nav Bar with props*/}
+        <Navbar
+          navbarLinkFeatures="Hello"
+          navbarLinkProducts="Webflow"
+          navbarLinkResources="Cloud"
+          navbarLinkContact=""
+        /> 
+                <Cta1
+          description = 'this is a sample cta block'
+          buttonText = "Click here"
+          buttonLink = {{
+            href: "#"
+          }}></Cta1>
         <Block
           tag="div"
           className="hero-split"
@@ -39,26 +55,21 @@ export default function Home() {
           <Block tag="p" className="margin-bottom-24px">
             This is a simple test using Basic components with enhanced styling.
           </Block>
-          <div style={{ marginTop: "12px" }}>
+          <div>
             <Link
               button={true}
               options={{
-                href: "https://developers.webflow.com/webflow-cloud/getting-started",
+                href: "#",
               }}
               className="button-primary"
-              style={{
-                borderRadius: "4px",
-                background: "#146ef5",
-                color: "#ffffff",
-                boxShadow:
-                  "0px 0.5px 1px rgba(0, 0, 0, 0.25), inset 0px 29px 23px -16px rgba(255, 255, 255, 0.04), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.2)",
-              }}
             >
               Get Started
             </Link>
           </div>
         </Block>
+        <Footer /> {/* Add Footer */}
       </Block>
     </Section>
   );
 }
+
